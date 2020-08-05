@@ -12,7 +12,7 @@ export type ResponseType = {
     data: Array<EmployeeType>;
 };
 
-type EmployeeType = {
+export type EmployeeType = {
     id: number;
     email: string;
     first_name: string;
@@ -20,7 +20,7 @@ type EmployeeType = {
     avatar: string;
 }
 
-export const EmployeesAPI = {
+export const employeesAPI = {
     getEmployees() {
         return instance.get<ResponseType>("/users?per_page=12").then(res => res.data)
     }
