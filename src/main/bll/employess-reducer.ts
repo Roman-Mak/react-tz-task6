@@ -40,19 +40,19 @@ type ActionType = GetEmployeesSuccessType |
     RemoveEmployeeSuccessType;
 
 type GetEmployeesSuccessType = { type: typeof GET_EMPLOYEES; employees: Array<EmployeeType> }
-const getEmployeesSuccess = (employees: Array<EmployeeType>): GetEmployeesSuccessType => ({
+export const getEmployeesSuccess = (employees: Array<EmployeeType>): GetEmployeesSuccessType => ({
     type: GET_EMPLOYEES,
     employees
 });
 
 type isFetchingType = { type: typeof IS_FETCHING; isFetching: boolean };
-const isFetching = (isFetching: boolean): isFetchingType => ({type: IS_FETCHING, isFetching});
+export const isFetching = (isFetching: boolean): isFetchingType => ({type: IS_FETCHING, isFetching});
 
 type SetErrorType = { type: typeof SET_ERROR; error: string };
-const setError = (error: string): SetErrorType => ({type: SET_ERROR, error});
+export const setError = (error: string): SetErrorType => ({type: SET_ERROR, error});
 
 type AddEmployeeSuccessType = { type: typeof ADD_EMPLOYEE, employee: EmployeeType };
-const addEmployeeSuccess = (employee: EmployeeType): AddEmployeeSuccessType => ({
+export const addEmployeeSuccess = (employee: EmployeeType): AddEmployeeSuccessType => ({
     type: ADD_EMPLOYEE,
     employee
 });
