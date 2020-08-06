@@ -39,7 +39,7 @@ const Employees = ({
 
     return (
         <div className={styles.employees}>
-            <div>
+            <div className={styles.form}>
                 <input type={"text"} placeholder={"employee first name"} onChange={onFirstNameChange}
                        value={newEmployeeFirstName}/>
                 <input type={"text"} placeholder={"employee last name"} onChange={onLastNameChange}
@@ -54,7 +54,7 @@ const Employees = ({
                                                       lastName={e.last_name} removeEmployee={removeEmployee}/>)}
                     </div>
             }
-            {error && <span>{error}</span>}
+            {error && <span className={styles.error}>{error}</span>}
         </div>
     );
 };

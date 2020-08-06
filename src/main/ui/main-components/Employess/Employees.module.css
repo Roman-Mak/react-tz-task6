@@ -9,3 +9,20 @@
 .employees div {
     padding: 8px;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form input {
+    padding: 5px;
+    margin: 5px;
+}
+
+.error {
+    color: red;
+}
