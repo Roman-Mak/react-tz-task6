@@ -15,7 +15,7 @@ const initialState = {
 
 type initialStateType = typeof initialState;
 
-const EmployeesReducer = (state: initialStateType = initialState, action: ActionType): initialStateType => {
+const employeesReducer = (state: initialStateType = initialState, action: ActionType): initialStateType => {
     switch (action.type) {
         case GET_EMPLOYEES:
             return {...state, employees: action.employees};
@@ -37,7 +37,7 @@ type ActionType = GetEmployeesSuccessType |
     isFetchingType |
     SetErrorType |
     AddEmployeeSuccessType |
-    RemoveEmployeeType;
+    RemoveEmployeeSuccessType;
 
 type GetEmployeesSuccessType = { type: typeof GET_EMPLOYEES; employees: Array<EmployeeType> }
 const getEmployeesSuccess = (employees: Array<EmployeeType>): GetEmployeesSuccessType => ({
@@ -57,8 +57,9 @@ const addEmployeeSuccess = (employee: EmployeeType): AddEmployeeSuccessType => (
     employee
 });
 
-type RemoveEmployeeType = { type: typeof REMOVE_EMPLOYEE, employeeId: number };
-const removeEmployee = (employeeId: number): RemoveEmployeeType => ({type: REMOVE_EMPLOYEE, employeeId});
+type RemoveEmployeeSuccessType = { type: typeof REMOVE_EMPLOYEE, employeeId: number };
+export const removeEmployeeSuccess = (employeeId: number): RemoveEmployeeSuccessType => (
+    {type: REMOVE_EMPLOYEE, employeeId});
 
 export const getEmployees = () => async (dispatch: Dispatch<ActionType>) => {
     dispatch(isFetching(true));
@@ -72,4 +73,13 @@ export const getEmployees = () => async (dispatch: Dispatch<ActionType>) => {
     }
 };
 
-export default EmployeesReducer;
+export const addEmployee = (firstName: string, lastName: string) => (dispatch: Dispatch<ActionType>) => {
+    let newEmployee = {
+        id: Math.floor(Math.random() * 100),
+        first_name: firstName,
+        last_name: lastName
+    };
+    dispatch(addEmployeeSuccess(newEmployee));
+};
+
+export default employeesReducer;

@@ -14,10 +14,10 @@ export type ResponseType = {
 
 export type EmployeeType = {
     id: number;
-    email: string;
+    // email: string;
     first_name: string;
     last_name: string;
-    avatar: string;
+    // avatar: string;
 }
 
 export const employeesAPI = {
